@@ -1,0 +1,19 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug",
+        "placeholder": "ex. announcing-project-x"
+      }
+    },
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Main Title",
+        "placeholder": "ex. Announcing Project X"
+      }
+    }
+  }
+}
