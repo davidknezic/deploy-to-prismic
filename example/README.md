@@ -1,4 +1,4 @@
-[![Deploy to Prismic](https://localhost:3000/static/button.svg)](https://localhost:3000/?repo=https://github.com/davidknezic/deploy-to-prismic/tree/master/example)
+[![Deploy to Prismic](https://deployweb.site/static/button.svg)](https://deployweb.site/?url=https://github.com/davidknezic/deploy-to-prismic/tree/master/example)
 
 # Deploy to Prismic example
 

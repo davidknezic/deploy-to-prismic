@@ -1,4 +1,6 @@
 {
+  "@title": "Article",
+  "@repeatable": true,
   "Main": {
     "uid": {
       "type": "UID",
