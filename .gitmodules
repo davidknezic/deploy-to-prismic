@@ -1,0 +1,3 @@
+[submodule "contento-remote"]
+	path = contento-remote
+	url = https://github.axa.com/david-knezic/contento-remote.git
