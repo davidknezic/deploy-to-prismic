@@ -5,6 +5,7 @@
     "name": {
       "type": "Text",
       "config": {
+        "useAsTitle": true,
         "label": "Name",
         "placeholder": "ex. John Doe"
       }

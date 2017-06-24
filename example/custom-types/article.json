@@ -12,6 +12,7 @@
     "title": {
       "type": "StructuredText",
       "config": {
+        "useAsTitle": true,
         "single": "heading1",
         "label": "Main Title",
         "placeholder": "ex. Announcing Project X"

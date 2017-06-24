@@ -10,5 +10,10 @@
       "text": "Hello World!",
       "spans": []
     }
-  }]
+  }],
+  "author": {
+    "id": "WU6RGSMAADxMs2Vt",
+    "mask": "author",
+    "wioUrl": "wio://documents/WU6RGSMAADxMs2Vt"
+  }
 }
