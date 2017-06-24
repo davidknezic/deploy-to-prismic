@@ -11,21 +11,12 @@ const Usage = ({
       <p>Save your custom types in your source repository and deploy them to your <a href="https://prismic.io">prismic.io</a> projects with just one-click.</p>
       <p>To add the one-click deploy button to your open source project, include the button in your <code>README.md</code>.</p>
       <pre>[![<span className="blue link">Deploy to Prismic</span>](<span className="blue">https://deployweb.site/static/button.svg</span>)](<span className="blue">https://deployweb.site/?url=<strong className="green">https://github.com/davidknezic/deploy-to-prismic/tree/master/example</strong></span>)</pre>
+      <p>Notice the <code>url</code> param? It points to the folder in your source repository which contains the deployment information.</p>
       <p>Check out the example under under<br /><a href="https://github.com/davidknezic/deploy-to-prismic/tree/master/example">https://github.com/davidknezic/deploy-to-prismic/tree/master/example</a></p>
     </Container>
     <style jsx>{`
       .usage {
         padding: 60px 0;
-      }
-
-      a {
-        text-decoration: underline;
-        transition: color 0.3s ease;
-        color: #707B93;
-      }
-
-      a:hover {
-        color: #606a7f;
       }
 
       p {

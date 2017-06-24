@@ -13,6 +13,9 @@ include the button in your README.md.
 
 `[![Deploy to Prismic](https://deployweb.site/static/button.svg)](https://deployweb.site/?url=https://github.com/davidknezic/deploy-to-prismic/tree/master/example)`
 
+Notice the `url` param? It points to the folder in your source repository
+which contains the deployment information.
+
 ## Example
 
 See the [`example` folder](example) for a fully deployable repository.

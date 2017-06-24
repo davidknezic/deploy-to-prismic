@@ -21,16 +21,6 @@ const Title = ({
       h1:first-child {
         margin-top: 0;
       }
-
-      h1 :global(a) {
-        text-decoration: underline;
-        transition: color 0.3s ease;
-        color: #707B93;
-      }
-
-      h1 :global(a:hover) {
-        color: #606a7f;
-      }
     `}</style>
   </h1>
 )
