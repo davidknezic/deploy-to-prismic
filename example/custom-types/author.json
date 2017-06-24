@@ -1,0 +1,13 @@
+{
+  "@title": "Author",
+  "@repeatable": true,
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name",
+        "placeholder": "ex. John Doe"
+      }
+    }
+  }
+}

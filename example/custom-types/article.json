@@ -16,6 +16,17 @@
         "label": "Main Title",
         "placeholder": "ex. Announcing Project X"
       }
+    },
+    "author": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": [
+          "author"
+        ],
+        "label": "Author",
+        "placeholder": "ex. John Doe"
+      }
     }
   }
 }
