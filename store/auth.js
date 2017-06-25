@@ -19,7 +19,7 @@ export const login = ({ email, password }) => (dispatch) => {
     body: JSON.stringify({ email, password }),
   })
   .then(response => response.json())
-  .then(token => {
+  .then(({ token }) => {
     dispatch(setToken(token))
   })
   .catch(err => {

@@ -8,6 +8,10 @@ const Input = ({
 }) => (
   <label>
     <style jsx>{`
+      label {
+        display: inline-block;
+      }
+
       input {
         outline: none;
         border: 1px solid #D4D9E2;

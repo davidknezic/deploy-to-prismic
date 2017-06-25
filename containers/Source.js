@@ -29,12 +29,14 @@ export default class Source extends Component {
       </Container>
     ) : (
       <Container>
-        <Title>One-click deploy to <a href={this.props.url}>{this.props.source.owner}/{this.props.source.repo}</a></Title>
-        <ul>
-          {values(mapObjIndexed((customType, key) => (
-            <li key={key}>{customType['@title']}</li>
-          ), this.props.source.customTypes))}
-        </ul>
+        <Title>One-click deploy <a href={this.props.url}>{this.props.source.owner}/{this.props.source.repo}</a></Title>
+        {false ? (
+          <ul>
+            {values(mapObjIndexed((customType, key) => (
+              <li key={key}>{customType['@title']}</li>
+            ), this.props.source.customTypes))}
+          </ul>
+        ) : null}
       </Container>
     )
   }

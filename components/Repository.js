@@ -47,7 +47,6 @@ const Repository = ({
         height: 195px;
         position: relative;
         overflow: hidden;
-        cursor: pointer;
         box-sizing: border-box;
         border-radius: 2px;
         box-shadow: 0 2px 4px 0 #e3e9f3;
@@ -123,6 +122,10 @@ const Repository = ({
       .body {
         padding-left: 30px;
         padding-top: 60px;
+      }
+
+      h3 {
+        margin: 0;
       }
     `}</style>
   </div>

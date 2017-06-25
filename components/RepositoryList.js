@@ -11,6 +11,7 @@ const RepositoryList = ({
         flex-wrap: nowrap;
         overflow-x: scroll;
         overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
       }
 
       .repositories::after {

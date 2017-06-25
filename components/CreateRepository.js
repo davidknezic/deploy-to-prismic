@@ -13,7 +13,6 @@ const CreateRepository = ({
         height: 195px;
         position: relative;
         overflow: hidden;
-        cursor: pointer;
         box-sizing: border-box;
         border-radius: 2px;
         background-color: #fff;
@@ -31,7 +30,6 @@ const CreateRepository = ({
         box-sizing: border-box;
         line-height: 40px;
         border: none;
-        cursor: pointer;
         background: #f9fbfd;
         border: 1px dashed #d7dde9;
         transition: color .2s ease-in-out;

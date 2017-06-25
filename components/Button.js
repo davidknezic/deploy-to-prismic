@@ -1,38 +1,72 @@
 import React from 'react'
+import classnames from 'classnames'
 
-const Input = ({
-  label,
+const Button = ({
+  children,
+  danger,
   onClick,
+  small,
   type,
 }) => (
   <label>
+    <button
+      type={type || 'button'}
+      onClick={() => onClick()}
+      className={classnames({
+        danger,
+        small,
+      })}
+    >
+      {children}
+    </button>
     <style jsx>{`
-      input {
+      label {
         display: inline-block;
+      }
+
+      button {
+        display: inline-block;
+        width: 100%;
         color: #fff;
         text-decoration: none;
-        padding: 20px 40px;
-        cursor: pointer;
+        padding: 0 40px;
         transition: .1s;
         border: none;
         background: #1DE9B6;
         outline: none;
         border-radius: 3px;
-        padding: 13px;
         font-weight: 700;
         font-size: 17px;
         line-height: 38px;
         height: 60px;
-        width: 100%;
         box-sizing: border-box;
+        user-select: none;
+        white-space: pre;
       }
 
-      input:hover {
+      button:hover {
         background-color: #16e1ae;
       }
+
+      button.danger {
+        color: #fff;
+        background: #ea6344;
+      }
+
+      button.danger:hover {
+        background-color: #ea6344;
+        opacity: .85;
+      }
+
+      button.small {
+        height: auto;
+        padding: 8px 10px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+      }
     `}</style>
-    <input type={type} value={label} onClick={() => onClick()} />
   </label>
 )
 
-export default Input
+export default Button

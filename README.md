@@ -1,4 +1,4 @@
-# Deploy to Prismic [🔗](https://deployweb.site)
+# Deploy to prismic.io [🔗](https://deployweb.site)
 
 >One-click deployment for your [prismic.io](https://prismic.io) repository
 
