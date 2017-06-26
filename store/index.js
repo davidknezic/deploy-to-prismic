@@ -7,6 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import * as auth from './auth'
 import * as profile from './profile'
+import * as progress from './progress'
 import * as repositories from './repositories'
 import * as source from './source'
 import * as url from './url'
@@ -14,6 +15,7 @@ import * as url from './url'
 const reducer = combineReducers({
   auth: auth.reducer,
   profile: profile.reducer,
+  progress: progress.reducer,
   repositories: repositories.reducer,
   source: source.reducer,
   url: url.reducer,
