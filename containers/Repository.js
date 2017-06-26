@@ -71,7 +71,7 @@ export default class RepositoryContainer extends Component {
                 ) : (
                   <Repository
                     key={key}
-                    name={this.props.repositories[key].name}
+                    name={this.props.repositories[key].displayName}
                     avatarUrl={this.props.repositories[key].avatarUrl}
                     avatarColor={this.props.repositories[key].avatarColor}
                     userCount={this.props.repositories[key].userCount}
