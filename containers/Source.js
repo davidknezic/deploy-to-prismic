@@ -10,10 +10,6 @@ import Title from '../components/Title'
 }), {
 })
 export default class Source extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return this.props.source === null ? (
       <div />
