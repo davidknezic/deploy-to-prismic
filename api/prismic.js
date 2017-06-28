@@ -85,7 +85,11 @@ export const createRepository = (req, res) => {
   .then(isSuccessful => {
     res.status(200).json({
       url: `http://${req.body.name}.prismic.io`,
+      displayName: req.body.name,
       name: req.body.name,
+      userCount: 1,
+      avatarUrl: null,
+      avatarColor: 'rgb(255, 194, 68)',
     })
   })
   .catch(err => {
