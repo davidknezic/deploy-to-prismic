@@ -13,6 +13,13 @@ export const loadProfile = ({ token }) => (dispatch) => {
       'Authorization': `Bearer ${token}`,
     },
   })
+  .then(response => {
+    if (!response.ok) {
+      throw Error(response.statusText)
+    } else {
+      return response
+    }
+  })
   .then(response => response.json())
   .then(profile => {
     dispatch(setProfile(profile))

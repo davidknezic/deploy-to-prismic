@@ -18,6 +18,13 @@ export const login = ({ email, password }) => (dispatch) => {
     },
     body: JSON.stringify({ email, password }),
   })
+  .then(response => {
+    if (!response.ok) {
+      throw Error(response.statusText)
+    } else {
+      return response
+    }
+  })
   .then(response => response.json())
   .then(({ token }) => {
     dispatch(setToken(token))

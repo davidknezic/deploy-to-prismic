@@ -15,6 +15,13 @@ const deployCustomType = ({ customType, name, repository, token }) => (dispatch)
     },
     body: JSON.stringify({ customType, name, repository }),
   })
+  .then(response => {
+    if (!response.ok) {
+      throw Error(response.statusText)
+    } else {
+      return response
+    }
+  })
   .then(() => {
     dispatch(setCustomTypeStatus({ name, status: 'success' }))
   })

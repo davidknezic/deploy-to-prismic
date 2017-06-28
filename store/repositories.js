@@ -20,6 +20,13 @@ export const loadRepositories = ({ token }) => (dispatch) => {
       'Authorization': `Bearer ${token}`,
     },
   })
+  .then(response => {
+    if (!response.ok) {
+      throw Error(response.statusText)
+    } else {
+      return response
+    }
+  })
   .then(response => response.json())
   .then(repositories => {
     dispatch(setRepositories(repositories))
@@ -40,6 +47,13 @@ export const createRepository = ({ token, name }) => (dispatch) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ name }),
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw Error(response.statusText)
+    } else {
+      return response
+    }
   })
   .then(response => response.json())
   .then(repository => {

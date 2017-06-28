@@ -11,12 +11,18 @@ export const loadSource = ({ url }) => (dispatch) => {
   return fetch(`/api/source?${queryString.stringify({ url })}`, {
     method: 'GET',
   })
+  .then(response => {
+    if (!response.ok) {
+      throw Error(response.statusText)
+    } else {
+      return response
+    }
+  })
   .then(response => response.json())
   .then(source => {
     dispatch(setSource(source))
   })
   .catch(err => {
-    console.log(err)
     dispatch(setSource('failed'))
   })
 }
