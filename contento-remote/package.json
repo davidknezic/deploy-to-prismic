@@ -1,0 +1,14 @@
+{
+  "name": "contento-remote",
+  "version": "2.2.0",
+  "description": "",
+  "main": "src/index.js",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "jsdom": "^10.1.0",
+    "request": "^2.79.0"
+  },
+  "publishConfig": {
+    "registry": "https://axags.artifactoryonline.com/axags/api/npm/lib-contento"
+  }
+}

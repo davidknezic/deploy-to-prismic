@@ -1,0 +1,20 @@
+# Configuration
+.env
+
+# Dependencies
+node_modules
+
+# OS files
+.DS_Store
+
+# IDE files
+.idea
+.vscode
+
+# Generated
+*.log
+.tmp
+.sass-cache
+.build
+.public
+mytest.js
