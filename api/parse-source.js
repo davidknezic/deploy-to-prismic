@@ -72,12 +72,17 @@ function requestCustomTypes(url, ref) {
 }
 
 function requestContent(url, ref) {
+  const authHeader = process.env.GITHUB_USERNAME && process.env.GITHUB_TOKEN
+    ? `Basic ${new Buffer([process.env.GITHUB_USERNAME, process.env.GITHUB_TOKEN].join(':')).toString('base64')}`
+    : undefined
+
   return request({
     url,
     method: 'GET',
     headers: {
       'User-Agent': 'Deploy to Prismic',
       'Content-Type': 'application/json',
+      'Authorization': authHeader,
     },
     json: true,
     qs: {
