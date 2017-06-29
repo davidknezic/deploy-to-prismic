@@ -28,6 +28,9 @@ export default class Index extends Component {
   }
 
   componentDidMount() {
+    const ReactGA = require('react-ga')
+    ReactGA.initialize('UA-101641457-1')
+
     if (this.props.url) {
       this.props.loadSource({ url: this.props.url })
     }
