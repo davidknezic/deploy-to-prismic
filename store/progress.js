@@ -2,6 +2,8 @@
 
 import { createAction, handleActions } from 'redux-actions'
 
+export const clearProgress = createAction('CLEAR_PROGRESS')
+
 const setCustomTypeStatus = createAction('SET_CUSTOM_TYPE')
 
 const deployCustomType = ({ customType, name, repository, token }) => (dispatch) => {
@@ -44,6 +46,7 @@ export const deploy = ({ customTypes, repository, token }) => (dispatch) => {
 }
 
 export const reducer = handleActions({
+  [clearProgress]: () => null,
   [setCustomTypeStatus]: (state, { payload: { name, status } }) => {
     const customTypes = state ? state.customTypes || {} : {}
 

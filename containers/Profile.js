@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { login, logout } from '../store/auth'
+import { loadProfile, setProfile } from '../store/profile'
+import { loadRepositories, setRepositories } from '../store/repositories'
+import { clearProgress } from '../store/progress'
 import Button from '../components/Button'
 import Container from '../components/Container'
 import Input from '../components/Input'
@@ -10,9 +13,15 @@ import LoginForm from '../components/LoginForm'
 
 @connect(state => ({
   profile: state.profile,
+  auth: state.auth,
 }), {
   login,
   logout,
+  loadProfile,
+  loadRepositories,
+  setProfile,
+  setRepositories,
+  clearProgress,
 })
 export default class ProfileContainer extends Component {
   constructor(props) {
@@ -43,17 +52,42 @@ export default class ProfileContainer extends Component {
       email: this.state.email,
       password: this.state.password,
     })
+    .then(() => this.props.loadProfile({ token: this.props.auth }))
+    .then(() => this.props.loadRepositories({ token: this.props.auth }))
+  }
+
+  handleLogoutClick() {
+    this.props.logout()
+    this.props.setProfile(null)
+    this.props.setRepositories(null)
+    this.props.clearProgress()
   }
 
   render() {
     return (
       <Container>
         <Subtitle>1. Sign in to <a href="https://prismic.io">prismic.io</a></Subtitle>
-        {this.props.profile === null ? (
+        {this.props.profile === null || this.props.profile === 'failed' || this.props.profile === 'fetching' ? (
           <LoginForm onLogin={this.handleLoginClick.bind(this)}>
-            <Input type="email" placeholder="Email address" onChange={this.handleEmailChange.bind(this)} />
-            <Input type="password" placeholder="******" onChange={this.handlePasswordChange.bind(this)} />
-            <Button type="submit">Sign in</Button>
+            <Input
+              type="email"
+              placeholder="Email address"
+              onChange={this.handleEmailChange.bind(this)}
+              disabled={this.props.profile === 'fetching'}
+              invalid={this.props.profile === 'failed'}
+            />
+            <Input
+              type="password"
+              placeholder="******"
+              onChange={this.handlePasswordChange.bind(this)}
+              disabled={this.props.profile === 'fetching'}
+              invalid={this.props.profile === 'failed'}
+            />
+            <Button
+              type="submit"
+            >
+              Sign in
+            </Button>
           </LoginForm>
         ) : (
           <Profile
@@ -61,7 +95,7 @@ export default class ProfileContainer extends Component {
             displayName={this.props.profile.displayName}
             firstName={this.props.profile.firstName}
             lastName={this.props.profile.lastName}
-            onLogout={this.props.logout}
+            onLogout={this.handleLogoutClick.bind(this)}
           />
         )}
       </Container>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createRepository, selectRepository } from '../store/repositories'
+import { clearProgress } from '../store/progress'
 import Button from '../components/Button'
 import Container from '../components/Container'
 import Input from '../components/Input'
@@ -17,6 +18,7 @@ import Subtitle from '../components/Subtitle'
 }), {
   createRepository,
   selectRepository,
+  clearProgress,
 })
 export default class RepositoryContainer extends Component {
   constructor(props) {
@@ -52,6 +54,11 @@ export default class RepositoryContainer extends Component {
     this.setState({ ...this.state, modalOpen: false })
   }
 
+  handleRepositorySelection(key) {
+    this.props.selectRepository(key)
+    this.props.clearProgress()
+  }
+
   render() {
     return (
       <div>
@@ -76,7 +83,7 @@ export default class RepositoryContainer extends Component {
                     avatarColor={this.props.repositories[key].avatarColor}
                     userCount={this.props.repositories[key].userCount}
                     isSelected={key === this.props.selectedRepository}
-                    onSelect={() => this.props.selectRepository(key)} />
+                    onSelect={this.handleRepositorySelection.bind(this, key)} />
                 )
               )) : null}
             </RepositoryList>
