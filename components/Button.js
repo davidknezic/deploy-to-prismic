@@ -11,7 +11,7 @@ const Button = ({
   <label>
     <button
       type={type || 'button'}
-      onClick={() => onClick()}
+      onClick={onClick}
       className={classnames({
         danger,
         small,

@@ -1,12 +1,26 @@
 import React from 'react'
+import classnames from 'classnames'
 
 const Input = ({
   name,
   onChange,
   placeholder,
   type,
+  disabled,
+  invalid,
 }) => (
   <label>
+    <input
+      type={type}
+      placeholder={placeholder}
+      name={name}
+      autoComplete="off"
+      onChange={(e) => onChange(e.target.value)}
+      disabled={disabled}
+      className={classnames({
+        invalid,
+      })}
+    />
     <style jsx>{`
       label {
         display: inline-block;
@@ -28,8 +42,11 @@ const Input = ({
       input:focus {
         border: 1px solid #b1b9b7;
       }
+
+      input.invalid {
+        border: 1px solid #e47169;
+      }
     `}</style>
-    <input type={type} placeholder={placeholder} name={name} autoComplete="off" onChange={(e) => onChange(e.target.value)} />
   </label>
 )
 

@@ -10,6 +10,7 @@ import RepositoryList from '../components/RepositoryList'
 import CreateRepository from '../components/CreateRepository'
 import Modal from '../components/Modal'
 import Subtitle from '../components/Subtitle'
+import NewRepositoryForm from '../components/NewRepositoryForm'
 
 @connect(state => ({
   repositories: state.repositories.entities,
@@ -31,27 +32,23 @@ export default class RepositoryContainer extends Component {
   }
 
   handleNameChange(name) {
-    this.setState({ ...this.state, name: name })
+    this.setState({ name })
   }
 
   handleNewRepositorySubmit() {
-    console.log(this.state.name, this.props.token)
-
     this.props.createRepository({
       token: this.props.token,
       name: this.state.name,
     })
-      .then(() => {
-        this.setState({ ...this.state, name: '' })
-      })
+    .then(() => this.setState({ name: '', modalOpen: false }))
   }
 
   handleCreateRepositoryClick() {
-    this.setState({ ...this.state, modalOpen: true })
+    this.setState({ modalOpen: true })
   }
 
   handleModalCloseClick() {
-    this.setState({ ...this.state, modalOpen: false })
+    this.setState({ modalOpen: false })
   }
 
   handleRepositorySelection(key) {
@@ -88,8 +85,10 @@ export default class RepositoryContainer extends Component {
               )) : null}
             </RepositoryList>
             <Modal onClose={this.handleModalCloseClick.bind(this)} open={this.state.modalOpen}>
-              <Input type="name" placeholder="Repository name" onChange={this.handleNameChange.bind(this)} />
-              <Button type="submit" label="Create repository" onClick={this.handleNewRepositorySubmit.bind(this)} />
+              <NewRepositoryForm
+                onChange={this.handleNameChange.bind(this)}
+                onClick={this.handleNewRepositorySubmit.bind(this)}
+              />
             </Modal>
           </Container>
         ) : null}

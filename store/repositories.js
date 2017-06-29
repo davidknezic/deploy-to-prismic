@@ -37,7 +37,7 @@ export const loadRepositories = ({ token }) => (dispatch) => {
 }
 
 export const createRepository = ({ token, name }) => (dispatch) => {
-  dispatch(addRepository('fetching'))
+  // dispatch(addRepository('fetching'))
 
   return fetch('/api/repositories', {
     method: 'POST',
@@ -60,7 +60,7 @@ export const createRepository = ({ token, name }) => (dispatch) => {
     dispatch(addRepository(repository))
   })
   .catch(err => {
-    dispatch(addRepository('failed'))
+    // dispatch(addRepository('failed'))
   })
 }
 
@@ -71,19 +71,19 @@ export const reducer = handleActions({
     selected: findRepositoryByUrl(state.selected, payload) ? state.selected : null,
   }),
   [addRepository]: (state, { payload }) => {
-    let entities = state.entities
+    const otherEntities = { ...state.entities }
+    delete otherEntities[payload.url]
 
-    if (!Array.isArray(state)) {
-      entities = []
-    }
-
-    if (typeof entities[0] === 'string') {
-      entities = entities.splice(1)
+    const newEntities = {
+      [payload.url]: payload,
     }
 
     return {
       ...state,
-      entities: [payload, ...entities],
+      entities: {
+        ...newEntities,
+        ...otherEntities,
+      },
     }
   },
   [selectRepository]: (state, { payload }) => ({
