@@ -11,6 +11,29 @@ import ErrorMessage from '../components/ErrorMessage'
 }), {
 })
 export default class Source extends Component {
+  componentWillReceiveProps(nextProps) {
+    const ReactGA = require('react-ga')
+
+    if (nextProps.source === 'fetching') {
+      ReactGA.event({
+        category: 'Source',
+        action: 'Fetching the source',
+      })
+    } else if (nextProps.source === 'failed') {
+      ReactGA.event({
+        category: 'Source',
+        action: 'Failed fetching the source',
+      })
+    } else if (nextProps.source !== null) {
+      ReactGA.event({
+        category: 'Source',
+        action: 'Successfully fetched the source',
+        label: nextProps.url,
+        value: Object.keys(nextProps.source.customTypes).length,
+      })
+    }
+  }
+
   render() {
     return this.props.source === null ? (
       <div />

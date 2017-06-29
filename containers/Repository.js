@@ -41,19 +41,43 @@ export default class RepositoryContainer extends Component {
       name: this.state.name,
     })
     .then(() => this.setState({ name: '', modalOpen: false }))
+
+    const ReactGA = require('react-ga')
+    ReactGA.event({
+      category: 'Repository',
+      action: 'Create a repository',
+    })
   }
 
   handleCreateRepositoryClick() {
     this.setState({ modalOpen: true })
+
+    const ReactGA = require('react-ga')
+    ReactGA.event({
+      category: 'Repository',
+      action: 'Open create repository modal',
+    })
   }
 
   handleModalCloseClick() {
     this.setState({ modalOpen: false })
+
+    const ReactGA = require('react-ga')
+    ReactGA.event({
+      category: 'Repository',
+      action: 'Close create repository modal',
+    })
   }
 
   handleRepositorySelection(key) {
     this.props.selectRepository(key)
     this.props.clearProgress()
+
+    const ReactGA = require('react-ga')
+    ReactGA.event({
+      category: 'Repository',
+      action: 'Select a repository',
+    })
   }
 
   render() {

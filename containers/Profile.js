@@ -54,6 +54,12 @@ export default class ProfileContainer extends Component {
     })
     .then(() => this.props.loadProfile({ token: this.props.auth }))
     .then(() => this.props.loadRepositories({ token: this.props.auth }))
+
+    const ReactGA = require('react-ga')
+    ReactGA.event({
+      category: 'Profile',
+      action: 'Login',
+    })
   }
 
   handleLogoutClick() {
@@ -61,6 +67,12 @@ export default class ProfileContainer extends Component {
     this.props.setProfile(null)
     this.props.clearRepositories()
     this.props.clearProgress()
+
+    const ReactGA = require('react-ga')
+    ReactGA.event({
+      category: 'Profile',
+      action: 'Logout',
+    })
   }
 
   render() {

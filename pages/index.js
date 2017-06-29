@@ -31,6 +31,9 @@ export default class Index extends Component {
     const ReactGA = require('react-ga')
     ReactGA.initialize('UA-101641457-1')
 
+    ReactGA.set({ page: window.location.pathname + window.location.search });
+    ReactGA.pageview(window.location.pathname + window.location.search);
+
     if (this.props.url) {
       this.props.loadSource({ url: this.props.url })
     }

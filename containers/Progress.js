@@ -23,6 +23,19 @@ export default class ProgressContainer extends Component {
       repository: this.props.repository.name,
       token: this.props.token,
     })
+    .then(() => {
+      const ReactGA = require('react-ga')
+      ReactGA.event({
+        category: 'Deploy',
+        action: 'Successful deployment',
+      })
+    })
+
+    const ReactGA = require('react-ga')
+    ReactGA.event({
+      category: 'Deploy',
+      action: 'Run deployment',
+    })
   }
 
   render() {
