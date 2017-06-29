@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { login, logout } from '../store/auth'
 import { loadProfile, setProfile } from '../store/profile'
-import { loadRepositories, setRepositories } from '../store/repositories'
+import { loadRepositories, clearRepositories } from '../store/repositories'
 import { clearProgress } from '../store/progress'
 import Button from '../components/Button'
 import Container from '../components/Container'
@@ -20,7 +20,7 @@ import LoginForm from '../components/LoginForm'
   loadProfile,
   loadRepositories,
   setProfile,
-  setRepositories,
+  clearRepositories,
   clearProgress,
 })
 export default class ProfileContainer extends Component {
@@ -59,7 +59,7 @@ export default class ProfileContainer extends Component {
   handleLogoutClick() {
     this.props.logout()
     this.props.setProfile(null)
-    this.props.setRepositories(null)
+    this.props.clearRepositories()
     this.props.clearProgress()
   }
 

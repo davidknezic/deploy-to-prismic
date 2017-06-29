@@ -8,6 +8,7 @@ const makeUrlIndexed = reduce((repositories, repository) => ({ ...repositories, 
 const isFetchingOrFailed = contains(__, ['fetching', 'failed'])
 
 export const setRepositories = createAction('SET_REPOSITORIES')
+export const clearRepositories = createAction('CLEAR_REPOSITORIES')
 export const addRepository = createAction('ADD_REPOSITORY')
 export const selectRepository = createAction('SELECT_REPOSITORY')
 
@@ -65,6 +66,10 @@ export const createRepository = ({ token, name }) => (dispatch) => {
 }
 
 export const reducer = handleActions({
+  [clearRepositories]: () => ({
+    entities: null,
+    selected: null,
+  }),
   [setRepositories]: (state, { payload }) => ({
     ...state,
     entities: isFetchingOrFailed(payload) ? payload : makeUrlIndexed(payload),
